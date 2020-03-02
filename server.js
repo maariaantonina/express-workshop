@@ -16,7 +16,11 @@ app.use((req, res, next) => {
 
 app.use(express.static(path.join(__dirname + '/public')));
 
-app.get('/|/home', (req, res) => {
+app.get('/', (req, res) => {
+  res.show('index.html');
+});
+
+app.get('/home', (req, res) => {
   res.show('index.html');
 });
 
@@ -34,6 +38,10 @@ app.get('/info', (req, res) => {
 
 app.get('/history', (req, res) => {
   res.show('history.html');
+});
+
+app.get('/hello/:name', (req, res) => {
+  res.send('Hello' + req.params.id);
 });
 
 app.use((req, res) => {
