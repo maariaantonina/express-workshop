@@ -137,3 +137,7 @@ h1 {
   font-weight: lighter;
   font-style: italic;
 }
+
+.uploadedImage {
+  width: 25%;
+}

@@ -47,11 +47,11 @@ app.get('/hello/:name', (req, res) => {
 
 app.post('/contact/send-message', upload.single('file'), (req, res) => {
   const { author, sender, title, message } = req.body;
-  const { fieldname } = req.file;
+  const { fieldname, filename } = req.file;
   console.log(req.body, req.file);
 
   if (author && sender && title && message && fieldname) {
-    res.render('contact', { isSent: true, fileName: fieldname });
+    res.render('contact', { isSent: true, fileName: filename });
   } else {
     res.render('contact', { isError: true });
   }
